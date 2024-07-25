@@ -7,9 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPluginApp", "TestPlugin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{A466D011-8CDA-44E7-971C-0D87F84714CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpperCaseFormatterPlugin", "UpperCaseFormaterPlugin\UpperCaseFormatterPlugin.csproj", "{E8EA644E-F669-4AC1-A9D4-355F9A2757EB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{1036F065-9768-4874-A713-BBF889AFE12F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LowerCaseFormatterPlugin", "LowerCaseFormatterPlugin\LowerCaseFormatterPlugin.csproj", "{D7BBA8C2-9D24-4911-947E-A3044CD9CDD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LowerCaseFormatterPlugin", "Plugins\LowerCaseFormatterPlugin\LowerCaseFormatterPlugin.csproj", "{46F0BB58-927D-43DB-A67B-38821D944B73}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UpperCaseFormatterPlugin", "Plugins\UpperCaseFormaterPlugin\UpperCaseFormatterPlugin.csproj", "{6164F910-675A-448E-BDA8-74FC7311BB4F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,17 +27,21 @@ Global
 		{A466D011-8CDA-44E7-971C-0D87F84714CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A466D011-8CDA-44E7-971C-0D87F84714CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A466D011-8CDA-44E7-971C-0D87F84714CF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E8EA644E-F669-4AC1-A9D4-355F9A2757EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E8EA644E-F669-4AC1-A9D4-355F9A2757EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E8EA644E-F669-4AC1-A9D4-355F9A2757EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E8EA644E-F669-4AC1-A9D4-355F9A2757EB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D7BBA8C2-9D24-4911-947E-A3044CD9CDD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D7BBA8C2-9D24-4911-947E-A3044CD9CDD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D7BBA8C2-9D24-4911-947E-A3044CD9CDD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D7BBA8C2-9D24-4911-947E-A3044CD9CDD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46F0BB58-927D-43DB-A67B-38821D944B73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46F0BB58-927D-43DB-A67B-38821D944B73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46F0BB58-927D-43DB-A67B-38821D944B73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46F0BB58-927D-43DB-A67B-38821D944B73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6164F910-675A-448E-BDA8-74FC7311BB4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6164F910-675A-448E-BDA8-74FC7311BB4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6164F910-675A-448E-BDA8-74FC7311BB4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6164F910-675A-448E-BDA8-74FC7311BB4F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{46F0BB58-927D-43DB-A67B-38821D944B73} = {1036F065-9768-4874-A713-BBF889AFE12F}
+		{6164F910-675A-448E-BDA8-74FC7311BB4F} = {1036F065-9768-4874-A713-BBF889AFE12F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A25BA491-1AD9-494E-96C1-9078A758BFEF}

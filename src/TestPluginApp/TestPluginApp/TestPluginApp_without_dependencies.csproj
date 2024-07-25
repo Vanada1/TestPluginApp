@@ -8,11 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Eziriz.Reactor.Licensing" Version="6.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="dotnet build &quot;$(SolutionDir)Plugins\**&quot; -c $(configuration) -o &quot;$(OutputPath)Plugins&quot;" />
+    <Exec Command="dotnet build &quot;$(SolutionDir)Plugins\Plugins.sln&quot; -c $(configuration) -o &quot;$(OutputPath)Plugins&quot; --no-dependencies" />
   </Target>
 
 </Project>

@@ -33,6 +33,7 @@ var selectedPlugin = plugins[number];
 Console.WriteLine("Enter string");
 var enteredString = Console.ReadLine();
 Console.WriteLine($"Result: {selectedPlugin.GetSomeString(enteredString)}");
+Console.ReadKey();
 return;
 
 IEnumerable<Assembly> LoadAssemblies(IEnumerable<string> deviceAssembliesPaths)
@@ -43,6 +44,7 @@ IEnumerable<Assembly> LoadAssemblies(IEnumerable<string> deviceAssembliesPaths)
 IEnumerable<string> GetDeviceAssembliesPaths()
 {
     var executableDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly()?.Location);
-    var files = Directory.GetFiles(executableDirectory, "*.dll");
+    var pluginsDirectory = Path.Combine(executableDirectory, "Plugins");
+    var files = Directory.GetFiles(pluginsDirectory, "*.dll");
     return files;
 }

@@ -1,9 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Reflection;
 using Core;
+using TestPluginApp_without_dependencies;
 
 #if RELEASE
-if(!License.Status.Licensed)
+if(!LicenseManager.CheckLicense())
 {
     Console.WriteLine("You have not license!");
     Console.ReadKey();
@@ -18,7 +19,7 @@ foreach (var assembly in assemblies)
 {
 #if RELEASE
     var pluginName = assembly.GetName().Name;
-    if (!License.Status.KeyValueList.ContainsKey(pluginName))
+    if (!LicenseManager.CheckPluginLicense(pluginName))
     {
         Console.WriteLine($"You have not license on {pluginName}!");
         continue;

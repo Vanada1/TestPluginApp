@@ -3,33 +3,27 @@ using System.Reflection;
 using Core;
 using TestPluginApp;
 
-#if RELEASE
-if(!LicenseManager.CheckLicense())
-{
-    Console.WriteLine("You have not license!");
-    Console.ReadKey();
-    return;
-}
-#endif
-
 var pluginPaths = GetDeviceAssembliesPaths();
 var assemblies = LoadAssemblies(pluginPaths);
 var plugins = new List<IPluginInterface>();
 foreach (var assembly in assemblies)
 {
-#if RELEASE
-    var pluginName = assembly.GetName().Name;
-    if (!LicenseManager.CheckPluginLicense(pluginName))
-    {
-        Console.WriteLine($"You have not license on {pluginName}!");
-        continue;
-    }
-#endif
-
     var implementations = typeof(IPluginInterface).GetInterfaceImplementations(assembly);
-    plugins.AddRange(
-        implementations.Select(
-            implementation => (IPluginInterface) Activator.CreateInstance(implementation)!));
+    foreach (var implementation in implementations)
+    {
+        IPluginInterface pluginInterface = null;
+        try
+        {
+            pluginInterface = (IPluginInterface) Activator.CreateInstance(implementation);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"You have not license for {implementation.Name}!");
+            continue;
+        }
+
+        plugins.Add(pluginInterface);
+    }
 }
 
 Console.WriteLine("Choose plugin:");

@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Eziriz.Reactor.Licensing" Version="6.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />
     <ProjectReference Include="..\Plugins\LowerCaseFormatterPlugin\LowerCaseFormatterPlugin.csproj" />
     <ProjectReference Include="..\Plugins\UpperCaseFormaterPlugin\UpperCaseFormatterPlugin.csproj" />

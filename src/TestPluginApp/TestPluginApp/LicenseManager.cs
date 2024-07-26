@@ -1,4 +1,4 @@
-﻿namespace TestPluginApp_without_dependencies;
+﻿namespace TestPluginApp;
 
 /// <summary>
 /// Менеджер лицензии.

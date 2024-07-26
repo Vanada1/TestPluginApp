@@ -1,7 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Reflection;
 using Core;
-using TestPluginApp_without_dependencies;
 
 #if RELEASE
 if(!LicenseManager.CheckLicense())

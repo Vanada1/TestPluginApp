@@ -38,6 +38,7 @@ var selectedPluginNumber = Console.ReadLine();
 if (!int.TryParse(selectedPluginNumber, out var number) || number >= plugins.Count || number < 0)
 {
     Console.WriteLine("Bad value");
+    Console.ReadKey();
     return;
 }
 

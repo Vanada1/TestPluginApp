@@ -5,10 +5,10 @@ namespace UpperCaseFormatterPlugin
     /// <summary>
     /// Класс обработки строки в верхний регистр.
     /// </summary>
-    public class UpperCaseFormatter : IPluginInterface
+    public partial class UpperCaseFormatter : IPluginInterface
     {
         /// <inheritdoc/>
-        public ILicense License { get; } = new CoreLicense();
+        public ILicense License { get; } = new UpperCaseFormatterLicense();
 
         /// <inheritdoc/>
         public string GetSomeString(string value)

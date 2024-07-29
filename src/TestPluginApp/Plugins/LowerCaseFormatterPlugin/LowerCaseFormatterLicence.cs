@@ -1,19 +1,20 @@
 ﻿using System.Collections;
+using Core;
 
-namespace Core;
+namespace LowerCaseFormatterPlugin;
 
 /// <summary>
-/// Класс лицензии для проекта Core.
+/// Класс лицензии для класса LowerCaseFormatter.
 /// </summary>
-public class CoreLicense : ILicense
+internal class LowerCaseFormatterLicence : ILicense
 {
     /// <summary>
     /// Словарь типов доступа к лицензии.
     /// </summary>
-    private readonly Dictionary<License.EvaluationType, EvaluationType> _evaluationTypes = new ()
+    private readonly Dictionary<License.EvaluationType, EvaluationType> _evaluationTypes = new()
     {
-        [License.EvaluationType.Runtime_Minutes] = EvaluationType.RuntimeMinutes,
-        [License.EvaluationType.Trial_Days] = EvaluationType.TrialDays,
+        [License.EvaluationType.Runtime_Minutes] = Core.EvaluationType.RuntimeMinutes,
+        [License.EvaluationType.Trial_Days] = Core.EvaluationType.TrialDays,
     };
 
     /// <inheritdoc/>

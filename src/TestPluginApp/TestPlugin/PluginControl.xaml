@@ -44,7 +44,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="0" Margin="0 0 5 0" Grid.Column="0" Text="Has Licence:"/>
+            <TextBlock Grid.Row="0" Margin="0 0 5 0" Grid.Column="0" Text="Has License:"/>
             <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding HasLicence}"/>
 
             <TextBlock Grid.Row="1" Margin="0 0 5 0" Grid.Column="0" Text="Use HardwareID:"/>

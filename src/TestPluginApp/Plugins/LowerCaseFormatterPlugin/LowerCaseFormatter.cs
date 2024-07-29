@@ -1,4 +1,5 @@
 ﻿using Core;
+using License;
 
 namespace LowerCaseFormatterPlugin
 {
@@ -8,7 +9,7 @@ namespace LowerCaseFormatterPlugin
     public class LowerCaseFormatter : IPluginInterface
     {
         /// <inheritdoc/>
-        public ILicense License { get; } = new CoreLicense();
+        public ILicense License { get; } = new LowerCaseFormatterLicence();
 
         /// <inheritdoc/>
         public string GetSomeString(string value)

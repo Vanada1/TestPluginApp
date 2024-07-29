@@ -1,5 +1,8 @@
 ﻿namespace Core;
 
+/// <summary>
+/// Интерфейс проверки лицензии.
+/// </summary>
 public interface ILicense
 {
     /// <summary>

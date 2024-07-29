@@ -30,6 +30,8 @@ public partial class PluginVM : ObservableObject
 
     public int EvaluationTime => _pluginInterface.License.EvaluationTime;
 
+    public int EvaluationTimeCurrent => _pluginInterface.License.EvaluationTimeCurrent;
+
     public string Filename
     {
         get => _filename;

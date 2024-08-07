@@ -1,9 +1,10 @@
-﻿using System.Text;
+﻿using System.Security.Cryptography;
+using System.Text;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
-var projectPath = "";
+var projectPath = "E:\\Code\\Products_Synthesis\\src\\LNADesigner";
 var filePaths = GetFiles(projectPath, ".cs");
 var classDeclarations = GetClasses(filePaths);
 foreach (var keyValuePair in classDeclarations)
@@ -95,10 +96,7 @@ List<(int InsertingIndex, string InsertingString)> GetConstantInsertingString(
     }
 
     var endLine = field == null ? "\n\n" : "\n";
-
-    // TODO: Добавить рандомный выбор переменной
-    var fieldName = "TestConstant";
-
+    var fieldName = GenerateVariableName();
     var insertingString = $"{modifiers} string {fieldName} = \"{key}\";{endLine}";
     addingStrings.Add((insertingIndex, insertingString));
     return addingStrings;
@@ -149,18 +147,47 @@ List<(int InsertingIndex, string InsertingString)> GetMethodsInsertingString(
         var bodyIndex = random.Next(0, bodyParts.Length);
         var insertingIndex = bodyParts[bodyIndex].FullSpan.End;
 
+        var fieldName = GenerateVariableName();
+
         // TODO: Добавить рандомный выбор переменной
-        var fieldName = "TestConstant";
         var insertingString = $"string {fieldName} = \"{key}\";\n";
         insertingString +=
             $"if ({fieldName} == nameof({fieldName}))\n"
             + "{\n"
-            + $"{fieldName} = \"123\";\n"
+            + $"{fieldName} = \"{GenerateVariableName()}\";\n"
             + "}\n\n"
-            + $"var msaeqwe123 = {fieldName};\n";
+            + $"var {GenerateVariableName()} = {fieldName};\n";
 
         addingStrings.Add((insertingIndex, insertingString));
     }
 
     return addingStrings;
+}
+
+string GenerateVariableName()
+{
+    var random = new Random();
+    var choices = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    const int minLength = 4;
+    const int maxLength = 15;
+    var length = random.Next(minLength, maxLength);
+    var randomString = GenerateRandomString(length, choices);
+    if (char.IsDigit(randomString.First()))
+    {
+        randomString = $"a{randomString}";
+    }
+
+    return randomString;
+}
+
+string GenerateRandomString(int length, string charSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789")
+{
+    var charArray = charSet.Distinct().ToArray();
+    var result = new char[length];
+    for (var i = 0; i < length; i++)
+    {
+        result[i] = charArray[RandomNumberGenerator.GetInt32(charArray.Length)];
+    }
+
+    return new string(result);
 }

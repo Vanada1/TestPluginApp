@@ -119,7 +119,7 @@ List<(int InsertingIndex, string InsertingString)> GetMethodsInsertingString(
     var random = new Random();
     var selectedMethodsCount = random.Next(1, methods.Length + 1);
     var methodsIndexes = new List<int>();
-    for (int i = 0; i < selectedMethodsCount; i++)
+    for (var i = 0; i < selectedMethodsCount; i++)
     {
         var methodIndex = random.Next(0, methods.Length);
         while (methodsIndexes.Contains(methodIndex))
@@ -149,7 +149,7 @@ List<(int InsertingIndex, string InsertingString)> GetMethodsInsertingString(
 
         var fieldName = GenerateVariableName();
 
-        // TODO: Добавить рандомный выбор переменной
+        // TODO: Добавить рандомный выбор кода для методов
         var insertingString = $"string {fieldName} = \"{key}\";\n";
         insertingString +=
             $"if ({fieldName} == nameof({fieldName}))\n"
